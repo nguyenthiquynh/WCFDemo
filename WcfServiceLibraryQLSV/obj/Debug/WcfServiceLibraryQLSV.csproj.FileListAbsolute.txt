@@ -1,0 +1,5 @@
+C:\Users\Quynh\Documents\Visual Studio 2013\Projects\WcfServiceLibraryQLSV\WcfServiceLibraryQLSV\bin\Debug\WcfServiceLibraryQLSV.dll.config
+C:\Users\Quynh\Documents\Visual Studio 2013\Projects\WcfServiceLibraryQLSV\WcfServiceLibraryQLSV\bin\Debug\WcfServiceLibraryQLSV.dll
+C:\Users\Quynh\Documents\Visual Studio 2013\Projects\WcfServiceLibraryQLSV\WcfServiceLibraryQLSV\bin\Debug\WcfServiceLibraryQLSV.pdb
+C:\Users\Quynh\Documents\Visual Studio 2013\Projects\WcfServiceLibraryQLSV\WcfServiceLibraryQLSV\obj\Debug\WcfServiceLibraryQLSV.dll
+C:\Users\Quynh\Documents\Visual Studio 2013\Projects\WcfServiceLibraryQLSV\WcfServiceLibraryQLSV\obj\Debug\WcfServiceLibraryQLSV.pdb
