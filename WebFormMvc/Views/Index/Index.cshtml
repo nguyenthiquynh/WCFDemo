@@ -1,0 +1,95 @@
+﻿@using WebFormMvc.ServiceReferenceSinhVien;
+@{
+    List<SinhVien> ListSV = (List<SinhVien>)ViewBag.ListSinhVien;
+    ViewBag.Title = "Quản lý sinh viên";
+}
+
+<h1 style="text-align:center; border-bottom:2px solid green">Danh sách sinh viên</h1>
+<div class="row-fluid" style="margin-bottom:10px;">
+    <!-- Trigger the modal with a button -->
+    <button type="button" class="btn btn-primary" onclick="TruocKhiThem()">Thêm mới sinh viên</button>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Thêm mới sinh viên</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="post" id="Formthem" onsubmit="return false;">
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>MSSV</th>
+                                <td>
+                                    <input type="hidden" name="ID" id="ID" value="">
+                                    <input type="text" name="MSSV" id="MSSV" value="" class="form-control">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Lớp</th>
+                                <td><input type="text" name="LOP" id="LOP" value="" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <th>Họ tên</th>
+                                <td><input type="text" name="HOTEN" id="HOTEN" value="" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <th>Ngày sinh</th>
+                                <td><input type="date" name="NGAYSINH" id="NGAYSINH" data-date-format="DD MM YYYY" class="form-control"></td>
+                            </tr>
+                            <tr>
+                                <th>Giới tính</th>
+                                <td>
+                                    <div class="radio">
+                                        <label><input type="radio" id="GIOITINHNAM" name="GIOITINH" value="Nam">Nam</label>
+                                        <label><input type="radio" id="GIOITINHNU" name="GIOITINH" value="Nữ">Nữ</label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="text-center">
+                            <input id="THEMSV" onclick="return ThemSV()" type="button" value="Thêm" class="btn btn-primary">
+                            <input id="UPDATESV" onclick="return CapnhatSV()" type="button" value="Cập nhật" class="btn btn-primary">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<table class="table table-bordered">
+    <tr>
+        <th class="text-center" width="20px;">ID</th>
+        <th class="text-center" width="150px;">Mã sinh viên</th>
+        <th class="text-center" width="200px;">Họ tên</th>
+        <th class="text-center" width="100px;">Lớp</th>
+        <th class="text-center" width="150px;">Ngày sinh</th>
+        <th class="text-center" width="100px;">Giới tính</th>
+        <th class="text-center" width="200px;">Tên đăng nhập</th>
+        <th class="text-center">Công cụ</th>
+    </tr>
+    @foreach (SinhVien SV in ListSV)
+    {
+        <tr>
+            <td class="text-center">@SV.ID</td>
+            <td>@SV.MSSV</td>
+            <td>@SV.HOTEN</td>
+            <td>@SV.LOP</td>
+            <td>@SV.NGAYSINH.ToShortDateString()</td>
+            <td>@SV.GIOITINH</td>
+            <td>@SV.TENDANGNHAP</td>
+            <td>
+                <button onclick="Del('@SV.ID')" class="btn btn-danger">Xóa</button>
+                <button onclick="Update('@SV.ID')" class="btn btn-success" data-toggle="modal" data-target="#myModal">Cập nhật</button>
+            </td>
+        </tr>
+    }
+</table>
